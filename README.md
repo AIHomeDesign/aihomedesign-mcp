@@ -1,10 +1,11 @@
-# AI HomeDesign MCP Server — Virtual Staging & Real‑Estate Photo AI for Claude
+# AI HomeDesign MCP Server — AI Virtual Staging, Home Staging & Interior Design for Claude
 
-> An open‑source **Model Context Protocol (MCP) server** that turns the
-> [AI HomeDesign](https://www.aihomedesign.com) real‑estate photo API into
-> natural‑language tools. Connect it to **Claude** (or any MCP client) and
-> **virtually stage, redesign, enhance, declutter, and day‑to‑dusk** property
-> photos — just by asking.
+> An open‑source **Model Context Protocol (MCP) server** for **AI virtual staging**
+> and **real‑estate photography** editing. It turns the
+> [AI HomeDesign](https://www.aihomedesign.com) photo API into natural‑language
+> tools, so **Claude** — or any MCP client — can do **virtual home staging**,
+> **AI interior design**, photo enhancement, decluttering, and day‑to‑dusk
+> conversions just by being asked.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Model Context Protocol](https://img.shields.io/badge/MCP-compatible-blue)](https://modelcontextprotocol.io)
@@ -20,8 +21,8 @@ streamable HTTP. Any MCP‑compatible AI client — **Claude Desktop, Claude in 
 browser, Cursor, and more** — can then run professional **real‑estate photo editing**
 in plain English:
 
-- 🛋️ **Virtual staging** — furnish an empty room with photorealistic AI furniture in a chosen design style.
-- 🎨 **Virtual restaging & interior design** — replace existing furniture or fully redesign a furnished room.
+- 🛋️ **Virtual staging** — furnish an empty room with photorealistic AI furniture in a chosen design style. Digital **home staging** in seconds, with no physical furniture.
+- 🎨 **Virtual restaging & AI interior design** — replace existing furniture or fully redesign a furnished room.
 - ✨ **Image enhancement** — fix lighting, sharpness, and color balance for listing‑ready photos.
 - 🧹 **Item removal / decluttering** — automatically remove furniture and clutter to reveal a clean space.
 - 🌆 **Day to dusk** — convert a daytime exterior into a warm twilight / dusk scene.
@@ -30,9 +31,12 @@ in plain English:
 Because it speaks MCP, there is **no SDK to learn** — you describe what you want and
 the model calls the right tool with the right parameters.
 
-## Why virtual staging over MCP?
+## Why virtual staging and home staging over MCP?
 
-Real‑estate agents, photographers, and PropTech teams spend hours in editing tools.
+Traditional home staging means renting furniture and scheduling a shoot. **Virtual
+staging for realtors** replaces that with an edited photo — but it still costs hours
+in editing tools or days of turnaround from a staging service.
+
 This server collapses that into a conversation: drop in a listing photo, pick a
 style, and get back a downloadable, market‑ready image. It's **multi‑tenant** (every
 caller uses their own AI HomeDesign key), **stateless**, and **self‑hostable**, so
@@ -143,6 +147,42 @@ with a pure‑ASGI auth middleware that binds the per‑request key.
 Python 3.12 · [MCP](https://modelcontextprotocol.io) (FastMCP) · Starlette · uvicorn ·
 httpx · PostgreSQL (optional) · Docker.
 
+## FAQ
+
+### What is an MCP server?
+
+An **MCP server** exposes tools, data, and prompts to an AI model through the
+[Model Context Protocol](https://modelcontextprotocol.io) — an open standard
+introduced by Anthropic. The model discovers the available tools at runtime and
+calls them itself, so you never write glue code against a bespoke SDK. This repo is
+an MCP server whose tools happen to edit real‑estate photos.
+
+### How do you virtually stage a photo with this?
+
+Connect the server to Claude, then send an empty‑room photo and ask for a style —
+for example *"stage this living room in a scandinavian style."* Claude calls the
+`virtual_staging` tool with the right parameters and returns a downloadable,
+photorealistic image. No manual editing, no design software.
+
+### Is this AI virtual staging free?
+
+The MCP server itself is open source and MIT‑licensed, so you can self‑host it at no
+cost. The image processing runs on the [AI HomeDesign](https://www.aihomedesign.com)
+API and uses your own API key.
+
+### Does it work with clients other than Claude?
+
+Yes. It speaks standard MCP over streamable HTTP, so any MCP‑compatible client —
+Claude Desktop, Claude in the browser, Cursor, and others — can use it.
+
+### What is the difference between virtual staging and virtual restaging?
+
+**Virtual staging** furnishes an *empty* room. **Virtual restaging** swaps the
+furniture in an *already‑furnished* room. Use `interior_design` when you want to
+redesign a furnished room completely rather than just replace the furniture.
+
+---
+
 ## Learn more
 
 - 🌐 Website: [aihomedesign.com](https://www.aihomedesign.com)
@@ -159,7 +199,8 @@ Released under the [MIT License](LICENSE).
 
 ---
 
-<sub>Keywords: AI HomeDesign MCP server · virtual staging API · virtual staging MCP ·
-real estate photo editing AI · interior design AI · virtual restaging · day to dusk ·
-image enhancement · declutter / item removal · Model Context Protocol · Claude MCP
-server · PropTech · real estate photography automation.</sub>
+<sub>Keywords: MCP server · Model Context Protocol · Claude MCP · Anthropic MCP · MCP tools ·
+virtual staging · AI virtual staging · virtual staging software · home staging ·
+virtual staging for realtors · AI home design · AI interior design · real estate photography ·
+real estate photo editing · virtual restaging · day to dusk · image enhancement ·
+item removal · real estate AI · PropTech.</sub>
