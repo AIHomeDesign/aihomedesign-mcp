@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Environment / secrets — never commit
+.env
+.env.*
+*.pem
+*.key
+.aihd-creds
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
