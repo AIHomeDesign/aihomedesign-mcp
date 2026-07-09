@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.aihomedesign/aihomedesign-mcp",
-  "title": "AI HomeDesign — Virtual Staging & Interior Design",
-  "description": "AI virtual staging, home staging and interior design for real-estate photos.",
+  "title": "AI HomeDesign",
+  "description": "MCP server to virtually stage, redesign, enhance and declutter real-estate photos.",
   "version": "1.0.0",
   "websiteUrl": "https://aihomedesign.com/mcp",
   "repository": {

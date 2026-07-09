@@ -74,10 +74,26 @@ home‑office, outdoor, nursery.
 
 ### Option A — Connect to the hosted server (no setup)
 
-1. Get your API key from [aihomedesign.com](https://www.aihomedesign.com).
-2. Generate your personal connector link (your key is validated, then stored
-   **encrypted** — it never appears in the URL).
-3. Add the connector URL to Claude as a custom MCP/connector and start editing photos in chat.
+1. **Get your API key.** Sign in at [aihomedesign.com](https://www.aihomedesign.com),
+   open **API / Developer settings**, and copy your `x-api-key`.
+2. **Generate your connector link.** Paste that key into the generator at
+   **[aihomedesign.com/mcp](https://aihomedesign.com/mcp)**. The key is validated
+   server‑side once, then stored **encrypted**; you get back a personal endpoint:
+
+   ```
+   https://mcp.aihomedesign.com/aihd_<your-token>/mcp
+   ```
+
+   Your raw key never appears in the URL.
+3. **Add it to your AI assistant.** In Claude: **Settings → Connectors → Add custom
+   connector**, name it *AI HomeDesign*, and paste the URL. Every tool shows up
+   automatically. Works with any MCP‑compatible client.
+
+> ⚠️ The connector link does not contain your raw key, but it **grants access to your
+> account — treat it like a password.** Rotating your key in the AI HomeDesign
+> dashboard revokes every link previously issued for it.
+
+Server health check, no key needed: [`mcp.aihomedesign.com/health`](https://mcp.aihomedesign.com/health)
 
 ### Option B — Self‑host with Docker
 
@@ -185,6 +201,7 @@ redesign a furnished room completely rather than just replace the furniture.
 
 ## Learn more
 
+- 🔌 Connect in one click: [aihomedesign.com/mcp](https://aihomedesign.com/mcp)
 - 🌐 Website: [aihomedesign.com](https://www.aihomedesign.com)
 - 📖 Model Context Protocol: [modelcontextprotocol.io](https://modelcontextprotocol.io)
 
