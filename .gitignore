@@ -19,3 +19,7 @@ env/
 Thumbs.db
 .idea/
 .vscode/
+
+# MCP registry signing key — never commit
+key.pem
+*.pem
