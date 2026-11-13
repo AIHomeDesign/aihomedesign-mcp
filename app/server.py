@@ -21,6 +21,7 @@ Env vars:
 """
 from __future__ import annotations
 
+import asyncio
 import base64
 import binascii
 import contextvars
@@ -88,7 +89,7 @@ def logged_tool():
 
     def deco(fn):
         @functools.wraps(fn)
-        def wrapper(*args, **kwargs):
+        def call_and_log(*args, **kwargs):
             start = time.time()
             status, error = "ok", None
             try:
@@ -113,6 +114,10 @@ def logged_tool():
                     )
                 except Exception:
                     pass
+
+        @functools.wraps(fn)
+        async def wrapper(*args, **kwargs):
+            return await asyncio.to_thread(call_and_log, *args, **kwargs)
 
         return mcp.tool()(wrapper)
 
